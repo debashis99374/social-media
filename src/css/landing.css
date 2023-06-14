@@ -1,0 +1,44 @@
+@media screen and (min-width:1024px){
+  .landing-main-container{
+    background-color:whitesmoke;
+    box-shadow: 1px 2px 2px gray;
+    border-radius: 5px;
+    width: 10cm;
+    height: 10cm;
+    margin: auto;
+    margin-top: 3cm;
+  }  
+  .landing-main-container>h4{
+    font-size: 30px;
+    padding-top: 1cm;
+  }
+  .landing-main-container>h4>span{
+    font-size: 40px;
+   color: orange;
+  }
+  .landing-main-container>p{
+    font-size: 17px;
+    
+    
+   color: rgb(52, 52, 52);
+  }
+  .landing-main-container>p>span{
+    font-size: 17px;
+    
+    
+   color: orange;
+  }
+  .landing-main-container>button{
+    font-size: 17px;
+    width: 80%;
+    margin: 5px;
+    
+    
+    
+   color: orange;
+  }
+ 
+
+
+
+}

@@ -1,0 +1,45 @@
+.rightsidebarDiv{
+    position: relative;
+    right: -34cm;
+    bottom: 22cm;
+    
+    padding: 30px;
+       padding-left: 40px;
+       
+       background-color:rgb(235, 253, 253);
+       
+       width:5cm
+}
+.rightsidebarDiv>h4{
+    margin-left: -.6cm;
+    font-size: 20px;
+    color: rgb(55, 55, 55);
+}
+.rightsidebarDiv>.allUsersList{
+    display: flex;
+    flex-direction: column;
+    margin-left: -.5cm;
+}
+.allusers-container{
+    line-height: 0px;
+}
+.allusers-container>p{
+    color: gray;
+    font-size: 13px;
+}
+.allusers-container>button{
+    
+    background-color:rgb(235, 253, 253); 
+    border: 0px solid ;
+    font-weight: 700;
+    color: rgb(188, 124, 4);
+    transition: transform 0.3s ease-in-out;
+    
+    }
+    .allusers-container>button:hover{
+        transform: scale(1.1);
+        
+    }
+    
+
+

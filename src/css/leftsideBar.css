@@ -1,0 +1,42 @@
+.leftsidebarDiv{
+       padding: 30px;
+       padding-left: 40px;
+       
+       background-color:rgb(235, 253, 253);
+       height:20cm;
+       width:5cm
+}
+.leftsidebarDiv>nav{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.leftsidebarDiv>nav>.nav-link {
+    
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+  }
+  
+  .leftsidebarDiv>nav>.nav-link:hover
+   {
+    text-decoration: none;
+    font-weight: 500;
+    
+  }
+  
+ 
+  .leftsidebarDiv>nav> button {
+    height: 1cm;
+    color:white;
+    background-color: rgb(188, 124, 4);
+    border: 0px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+  .leftsidebarDiv>nav> button:hover{
+    color: orange;
+    transform: scale(1.1);
+  }
+  

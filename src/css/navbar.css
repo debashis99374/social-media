@@ -1,0 +1,67 @@
+.navbar{
+    background-color: rgb(235, 253, 253);
+    height: 2cm;
+    display: flex;
+    
+}
+.navbar-left>span{
+    font-size: 30px;
+    font-weight: 500;
+    color: orange;
+    margin: 10px 0px 0px 10px;
+
+}
+.icons>nav>.NavLink{
+font-size: 20px;
+position: relative;
+margin: 10px;
+left: 4.3cm;
+top: -.6cm;
+color: black;
+
+}
+.icons>nav>.NavLink:hover{
+    font-weight: 500;
+    font-size: 21px;
+    
+}
+.search{
+    position: relative;
+    top: -1.2cm;
+    right: -14cm;
+
+}
+.search>input{
+    width: 10cm;
+    height: .5cm;
+    padding: 5px;
+    border-radius: 5px;
+    border: -1px solid "gray";
+}
+.search>.search-icon{
+    position: absolute;
+    right: .1cm;
+    top: .2cm;
+   font-size: 17px;
+   color: gray;
+
+    transform: translate(-50%);
+}
+.userdiv{
+    position: relative;
+    top: -2cm;
+    right: -37cm;
+   
+}
+.userdiv>img{
+    height: 40px;
+    border-radius: 50%;
+
+}
+.userdiv>span{
+    position: absolute;
+    top: 10px;
+    font-weight: 600;
+    margin-left: 10px;
+
+}
