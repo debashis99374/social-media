@@ -1,0 +1,60 @@
+.container-profile{
+    background-color: rgb(235, 253, 253);
+    width: 26.2cm;
+    padding: 20px;
+    position: relative;
+    bottom: 37.66cm;
+    right: -6.8cm;
+}
+.container-profile>h3{
+   
+   
+   margin-top: -.5cm;
+   
+   
+   text-align: center;
+    font-size: 30px;
+
+}
+.container-profile>button{
+    width: 80px;
+    height: 40px;
+    padding: 10px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+.container-profile-p1 {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+.container-profile-p2{
+    position: absolute;
+    top: 3cm;  
+}
+.container-profile-posts{
+    width: 80%;
+    margin-left: 1cm;
+    margin-top: 3cm;
+}
+
+.container-profile-posts>li>button{
+    background-color:rgb(235, 253, 253) ;
+    color: black;
+    font-size: 20px;
+   margin: 0cm .5cm 0cm 1.5cm;
+    
+}
+.container-profile-posts>li>button:hover{
+   color: orange;
+   transform: scale(1.1);
+    
+}
+
+
+

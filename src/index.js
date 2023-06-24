@@ -6,18 +6,28 @@ import reportWebVitals from './reportWebVitals';
 import { makeServer } from "./server";
 import {BrowserRouter as Router} from "react-router-dom"
 import {PostProvider,PostContext} from './context/postContext'
+import { AuthContext,AuthProvider } from './context/authContext';
+import { UserContext,UserProvider } from './context/userContext';
 
 // Call make Server
 makeServer();
 export {PostContext};
+export {AuthContext};
+export {UserContext};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Router>
-      <PostProvider>
+      
+    <AuthProvider>
+    <PostProvider>
+      <UserProvider>
     <App />
+    </UserProvider>
     </PostProvider>
+    </AuthProvider>
+    
     </Router>
   </React.StrictMode>
 );

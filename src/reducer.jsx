@@ -1,9 +1,52 @@
-export default function reducer(state,action){
-switch(action.type){
-    case"all_posts":
-    return {...state,allPosts:action.payLoad}
-    case"all_users":
-    return {...state,allUsers:action.payLoad}
+import axios from "axios"
+
+
+
+
+
+
+export default function reducer(state,{type,payLoad}){
+switch(type){
+    //post related reducers--------
+    case"all-posts":
+
+    console.log(payLoad)
+    
+    return {...state,allPosts:payLoad}
+
+    case "like-post":
+        return{...state,allPosts:payLoad}
+
+
+
+    case "dislike-post":
+      return{...state,allPosts:payLoad}
+
+    
+    
+
+    //user related reducers----------
+    case"all-users":
+    return {...state,allUsers:payLoad}
+    case "user":
+      
+    
+   
+      return { ...state, user: payLoad };
+
+    case"add-to-bookmark":
+    
+    
+   
+      return { ...state, bookmarks: payLoad };
+      case"remove-bookmark":
+    
+    
+   
+      return { ...state, bookmarks: payLoad };
+      
+      
+
     default :
     return state
 }

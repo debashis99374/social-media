@@ -1,0 +1,44 @@
+.container-bookmark{
+    background-color: rgb(235, 253, 253);
+    width: 26.2cm;
+    padding: 20px;
+    position: relative;
+    bottom: 37.66cm;
+    right: -6.8cm;
+}
+.container-bookmark>h3{
+    font-size: 30px;
+    text-align: center;
+}
+
+.bookmark-list{
+    width: 80%;
+    margin-left: 1cm;
+    margin-top: 3cm;
+}
+
+.bookmark-list>li>button{
+    background-color:rgb(235, 253, 253) ;
+    color: black;
+    font-size: 20px;
+   margin: 0cm 1cm 0cm 1.5cm;
+    
+}
+.bookmark-list>li>button:hover{
+    color: orange;
+    transform: scale(1.1);
+    
+}
+.empty-bookmark{
+    background-color: rgb(235, 253, 253);
+    width: 26.2cm;
+    padding: 20px;
+    position: relative;
+    bottom: 38.5cm;
+    right: -6.8cm;
+    font-size: 30px;
+    text-align: center;
+}
+
+
+

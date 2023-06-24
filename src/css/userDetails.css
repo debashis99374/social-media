@@ -1,0 +1,61 @@
+
+
+
+    
+    
+.container-user-details{
+    background-color: rgb(235, 253, 253);
+    width: 26.2cm;
+    padding: 20px;
+    position: relative;
+    bottom: 37.66cm;
+    right: -6.8cm;
+}
+
+.container-user-posts>button{
+    width: 80px;
+    height: 40px;
+    padding: 10px;
+   position: relative;
+   top: 2cm;
+   right: 2.1cm;
+
+}
+.container-user-posts{
+    width: 80%;
+    margin-left: 1cm;
+    margin-top: 3cm;
+}
+.container-user-posts>li>.container-user-posts-h{
+    font-size: 30px;
+    color: rgb(48, 8, 8);
+    position: absolute;
+    top: 20px;
+    right: 12cm;
+    
+}
+.container-user-posts-p1{
+    font-size: 15px;
+    color: rgb(73, 73, 73);
+    position: absolute;
+top: 80px;
+    right: 13.2cm;
+
+}
+.container-user-posts-bttn-1{
+    padding: 0px 10px 0px 10px;
+    position: absolute;
+    top: 120px;
+        right: 13.6cm;
+
+}
+.container-user-posts-bttn-w{
+    background-color:rgb(235, 253, 253) ;
+    color: black;
+    font-size: 20px;
+   margin: 0cm 1cm 0cm 1.5cm;
+    
+}
+
+
+

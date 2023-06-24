@@ -1,85 +1,68 @@
-import { useContext } from "react";
+import { useContext, useState,useRef } from "react";
 import { NavLink } from "react-router-dom";
-import { PostContext } from "../context/postContext";
+
+import { AiOutlineHeart,AiFillHeart,AiOutlineComment } from "react-icons/ai";
+import { BsBookmark,BsBookmarkFill,BsFillShareFill } from "react-icons/bs"
+import "../css/home.css"
 
 import "../css/home.css";
 
+import NavBar from "./navbar";
+
+import { PostContext } from "../context/postContext";
+import { UserContext } from "../context/userContext";
+import { AuthContext } from "../context/authContext";
+
+
+import {  toast } from 'react-toastify';
+
+
+
 export default function Home() {
-  const {data}=useContext(PostContext)
+  const {postData,createPost,likePostHandler,dislikePostHandler}=useContext(PostContext)
+  const {userData,addBookmarkHandler,removeBookmarkHandler}=useContext(UserContext)
+  const {currentUser}=useContext(AuthContext)
+    const [inputText,setinputText]=useState({content:''})
+    const inputRef = useRef(null);
+  
+  const handleInput=(e)=>{
+    setinputText({...inputText,content:e.target.value})
+  }
+  const resetOnClick=()=>{
+    setinputText({...inputText,content:""})
+    inputRef.current.value=""
+  }
+ 
+  
   return (
     <div className="home">
-      <div className="home-navigate">
-        <NavLink to="/">
-          <span className="fa fa-home">Home</span>
-        </NavLink>
-        <NavLink to="/explore">
-          <span className="fa fa-rocket">Explore</span>
-        </NavLink>
-        <NavLink to="/bookmark">
-          <span className="fa fa-bookmark-o">Bookmarks</span>
-        </NavLink>
-        <NavLink to="/profile">
-          <span className="fa fa-user-o">Profile</span>
-        </NavLink>
-        <button>Create New post</button>
-      </div>
-      <div className="main-content">
-        <div className="create-post">
-          <label htmlFor="new-post"></label>
-          <input
-            type="text"
-            name=""
-            id="new-post"
-            placeholder="What is Happening!?"
-          />
-          <div>
-            <span className="fa fa-image"></span>
-            <span className="fa fa-smile-o"></span>
-            <button>Post</button>
-          </div>
+      <NavBar/>
+      <div className="homepage-container">
+        <div className="comments-container">
+          <input type="text" placeholder="Share your thoughts..." onChange={handleInput} ref={inputRef}/>
+          <button onClick={()=>{createPost(inputText);resetOnClick();}} >POST</button>
+
         </div>
-        <div className="latest-post">
-          <h2>Will show posts of the following and self</h2>
-          <ul>
-            {data.allPosts.map((item) => (
-              <li key={item._id}>
-                <h3>{item.username}</h3>
-                <p>{item.content}</p>
-                <div className="post-icons">
-                  <span className="	fa fa-heart-o"></span>
-                  <span className="fa fa-comment-o"></span>
-                  <span className="fa fa-share-alt"></span>
-                  <span className="fa fa-bookmark-o"></span>
-                </div>
-              </li>
-            ))}
-          </ul>
+        <div className="allPosts-container">
+          {postData.allPosts.map(el=>(
+           
+            <li>
+              <h3> {userData.allUsers.find(ell=>ell.username===el.username).firstName}  {userData.allUsers.find(ell=>ell.username===el.username).lastName}</h3>
+             <p>@{el.username}</p>
+             <p>{el.content}</p> 
+             {el.likes.likedBy.find(el=>el.username===currentUser.username)?<button onClick={()=>dislikePostHandler(el._id)}><AiFillHeart/></button>:<button onClick={()=>likePostHandler(el._id)}><AiOutlineHeart/></button>} <span style={{marginLeft:"-.5cm"}}>{el.likes.likeCount}</span>
+             <button><AiOutlineComment/></button>
+             <button><BsFillShareFill/></button>
+            {userData.bookmarks.find(ell=>ell._id===el._id)?<button onClick={()=>{removeBookmarkHandler(el._id)}}><BsBookmarkFill/></button>:<button onClick={()=>addBookmarkHandler(el._id)} ><BsBookmark/></button>} 
+             
+              
+            </li>
+          ))}
+
         </div>
+
       </div>
-      <div className="sidebar">
-        <label htmlFor="search">Search</label>
-        <input
-          type="text"
-          name=""
-          id="search"
-          placeholder="Search people, post, anything"
-        />
-        <div>
-          <h2>Who to follow?</h2>
-          <button>
-            <span className="test">Following</span>
-            <span className="test2">Unfollow</span>
-          </button>
-          <ul>
-            {data.allUsers.map((item) => (
-              <li key={item._id}>
-                {item.username}
-                <button>Follow</button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+      
     </div>
   );
 }

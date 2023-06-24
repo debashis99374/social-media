@@ -7,7 +7,7 @@ export default function LeftsideBar(){
         <>
         <div className="leftsidebarDiv">
             <nav>
-        <NavLink exact to="/" className="nav-link">
+        <NavLink exact to="/explore" className="nav-link">
         <BsRocket className="nav-icon" />
         <span className="nav-text">EXPLORE</span>
       </NavLink>
