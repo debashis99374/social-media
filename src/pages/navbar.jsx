@@ -6,10 +6,12 @@ import LeftsideBar from '../components/leftsideBar';
 import RightsideBar from '../components/RightsideBar/rightsideBar';
 import { AuthContext } from '../context/authContext';
 import { useContext } from 'react';
+import { UserContext } from '../context/userContext';
 
 export default function NavBar(){
     const navigate=useNavigate()
     const {currentUser}=useContext(AuthContext)
+    const {userData}=useContext(UserContext)
     const capitalizeFirstLetter=(str)=>str.charAt(0).toUpperCase()+str.slice(1)
     return (
         <>

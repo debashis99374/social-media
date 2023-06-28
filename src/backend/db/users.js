@@ -16,6 +16,9 @@ export const users = [
     updatedAt: formatDate(),
    followers:[],
    following:[],
+   bio: "",
+   portfolio_link: "",
+   avatar: "https://i.ibb.co/kSXJLZg/avataaars-1.png"
   },
   {
     _id: uuid(),
@@ -27,6 +30,9 @@ export const users = [
     updatedAt: formatDate(),
     followers:[],
    following:[],
+   bio: "",
+   portfolio_link: "",
+   avatar: "https://i.ibb.co/kSXJLZg/avataaars-1.png"
   },
   {
     _id: uuid(),
@@ -38,6 +44,9 @@ export const users = [
     updatedAt: formatDate(),
     followers:[],
    following:[],
+   bio: "",
+   portfolio_link: "",
+   avatar: "https://i.ibb.co/kSXJLZg/avataaars-1.png"
   },
   {
     _id: uuid(),
@@ -49,6 +58,9 @@ export const users = [
     updatedAt: formatDate(),
     followers:[],
    following:[],
+   bio: "",
+   portfolio_link: "",
+   avatar: "https://i.ibb.co/kSXJLZg/avataaars-1.png"
   },
   {
     _id: uuid(),
@@ -60,5 +72,8 @@ export const users = [
     updatedAt: formatDate(),
     followers:[],
    following:[],
+   bio: "",
+    portfolio_link: "",
+    avatar: "https://i.ibb.co/kSXJLZg/avataaars-1.png"
   },
 ];

@@ -5,11 +5,19 @@
     position: relative;
     bottom: 37.66cm;
     right: -6.8cm;
+    text-align: center;
 }
+.container-profile img {
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+  }
+  
+
 .container-profile>h3{
    
    
-   margin-top: -.5cm;
+   margin-top: .0cm;
    
    
    text-align: center;
@@ -20,22 +28,23 @@
     width: 80px;
     height: 40px;
     padding: 10px;
-    position: absolute;
-    top: 30%;
-    left: 50%;
+    position: relative;
+    top: -.5cm;
+    left: 4%;
     transform: translate(-50%, -50%);
     
 }
 .container-profile-p1 {
-    position: absolute;
-    top: 15%;
+    position: relative;
+    top: -.5cm;
     left: 50%;
     transform: translate(-50%, -50%);
 
 }
 .container-profile-p2{
-    position: absolute;
-    top: 3cm;  
+    position: relative;
+    top: 2.5cm;
+    left: -11cm;  
 }
 .container-profile-posts{
     width: 80%;
