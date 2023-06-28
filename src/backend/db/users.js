@@ -14,6 +14,8 @@ export const users = [
     password: "adarshBalika123",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+   followers:[],
+   following:[],
   },
   {
     _id: uuid(),
@@ -23,6 +25,8 @@ export const users = [
     password: "subhamsoni123",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    followers:[],
+   following:[],
   },
   {
     _id: uuid(),
@@ -32,6 +36,8 @@ export const users = [
     password: "debashiskar123",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    followers:[],
+   following:[],
   },
   {
     _id: uuid(),
@@ -41,6 +47,8 @@ export const users = [
     password: "subhmangill123",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    followers:[],
+   following:[],
   },
   {
     _id: uuid(),
@@ -50,5 +58,7 @@ export const users = [
     password: "tanaypratap123",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    followers:[],
+   following:[],
   },
 ];

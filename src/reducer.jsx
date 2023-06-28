@@ -27,6 +27,7 @@ switch(type){
 
     //user related reducers----------
     case"all-users":
+    console.log(payLoad)
     return {...state,allUsers:payLoad}
     case "user":
       

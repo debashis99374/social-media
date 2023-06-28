@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext,useState } from "react"
 import { AuthContext } from "../context/authContext"
 import { PostContext } from "../context/postContext"
 import { UserContext } from "../context/userContext"
@@ -8,13 +8,24 @@ import { BsBookmark,BsBookmarkFill,BsFillShareFill } from "react-icons/bs"
 import NavBar from "./navbar";
 
 import "../css/profile.css"
+import PostModal from "../components/postModal/postModal";
 
 export default function Profile(){
+    const [isModalOpen,setIsModalOpen]=useState(false)
+    const [element,setElement]=useState({})
 
     const {postData,createPost,likePostHandler,dislikePostHandler,deletePostHandler}=useContext(PostContext)
   const {userData,addBookmarkHandler,removeBookmarkHandler}=useContext(UserContext)
   const {currentUser}=useContext(AuthContext)
     const capitalizeFirstLetter=(str)=>str.charAt(0).toUpperCase()+str.slice(1)
+    const handleEdit=(el)=>{
+        setElement(el)
+        setIsModalOpen(true)
+        
+
+    }
+
+    
     return(
         <div className="profile">
             <NavBar/>
@@ -34,7 +45,7 @@ export default function Profile(){
              <button><BsFillShareFill/></button>
             {userData.bookmarks.find(ell=>ell._id===el._id)?<button onClick={()=>{removeBookmarkHandler(el._id)}}><BsBookmarkFill/></button>:<button onClick={()=>addBookmarkHandler(el._id)} ><BsBookmark/></button>} 
                      <button onClick={()=>deletePostHandler(el._id)}>Delete</button>
-                     <button>Edit</button>  
+                     <button onClick={()=>{handleEdit(el)}}>Edit</button>  
                         </li>
                     ))}
 
@@ -42,6 +53,7 @@ export default function Profile(){
                 </div>
 
             </div>
+           {isModalOpen&&(<PostModal setIsModalOpen={setIsModalOpen} element={element}/>)} 
         </div>
     )
 }

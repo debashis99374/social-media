@@ -67,6 +67,9 @@ export function UserProvider({children}){
           }
         })
         userDispatch({type:"user",payLoad:response.data.user})
+        
+    
+   
 
       }catch(e){
         console.log(e)

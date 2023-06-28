@@ -8,6 +8,19 @@ export default function RightsideBar(){
     const navigate=useNavigate()
     const {postData}=useContext(PostContext)
     const {userData,followUserHandler,unfollowUserHandler}=useContext(UserContext)
+    const handleAddFollower=(id)=>{
+        const findEl=userData.allUsers.find(el=>el._id===id).followers.push(userData.user)
+
+        return findEl
+        
+    }
+    const handleRemoveFollower=(id)=>{
+        const index=userData.allUsers.findIndex(el=>el._id===id)
+        const updatedFollowers=userData.allUsers[index].followers.filter(el=>el._id !==userData.user._id)
+        return userData.allUsers[index].followers=updatedFollowers
+        
+    }
+    
     return(
         <>
         <div className="rightsidebarDiv">
@@ -18,7 +31,7 @@ export default function RightsideBar(){
                         <div className="allusers-container">
                         <h4 onClick={()=>navigate(`/details/${el.username}`)}>{el.firstName} {el.lastName}</h4>
                         <p>@{el.username}</p>
-                       {userData.user.following.find(ell=>ell.username===el.username)?<button onClick={()=>unfollowUserHandler(el._id)}>UNFOLLOW</button>:<button onClick={()=>followUserHandler(el._id)}>FOLLOW+</button>}
+                       {userData.user.following.find(ell=>ell.username===el.username)?<button onClick={()=>{unfollowUserHandler(el._id);handleRemoveFollower(el._id)}}>UNFOLLOW</button>:<button onClick={()=>{followUserHandler(el._id);handleAddFollower(el._id)}}>FOLLOW+</button>}
                         </div>
                     </li>
                 ))}

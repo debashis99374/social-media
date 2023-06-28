@@ -50,6 +50,21 @@ export  function PostProvider({children}){
           console.log(error);
         }
       }
+      const editPostHandler=async(postId,content)=>{
+        try{
+          const response=await axios.post(`/api/posts/edit/${postId}`,{ postData:{content} },{
+            headers:{
+              authorization: token,
+            }
+            
+          })
+          console.log(response)
+          postDispatch({type:"all-posts",payLoad:response.data.posts})
+
+        }catch(e){
+          console.log(e)
+        }
+      }
       const deletePostHandler=async(postId)=>{
         try{
           const response=await axios.delete(`/api/posts/${postId}`,{
@@ -112,6 +127,6 @@ export  function PostProvider({children}){
 
 
     return(
-        <PostContext.Provider value={{postData,postDispatch,createPost,likePostHandler,dislikePostHandler,deletePostHandler}}>{children}</PostContext.Provider>
+        <PostContext.Provider value={{postData,postDispatch,createPost,likePostHandler,dislikePostHandler,deletePostHandler,editPostHandler}}>{children}</PostContext.Provider>
     )
 }
