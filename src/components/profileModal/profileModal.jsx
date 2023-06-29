@@ -7,7 +7,7 @@ import { PostContext } from "../../context/postContext"
 
 export default function ProfileModal({setIsModalOpenProfile}){
     
-    const {userData,userDispatch}=useContext(UserContext)
+    const {userData,userDispatch,editUserHandler}=useContext(UserContext)
     const {postData}=useContext(PostContext)
 
 
@@ -37,13 +37,7 @@ export default function ProfileModal({setIsModalOpenProfile}){
     const handleProfileEdit=()=>{
        
         
-        const index=userData.allUsers.findIndex(el=>el.username===userData.user.username)
-        const newObj={...userData.allUsers[index],bio:bio,portfolio_link:portfolio_link,avatar:avatar}
-        const copyOfAllUser=[...userData.allUsers]
-        copyOfAllUser[index]=newObj
-
-        userDispatch({type:"all-users",payLoad:copyOfAllUser})
-        
+       
         
 
 
@@ -74,7 +68,7 @@ export default function ProfileModal({setIsModalOpenProfile}){
             <input placeholder="URL..." value={portfolio_link} onChange={(e)=>setEdit({...edit,portfolio_link:e.target.value})}/><br/>
             
             
-            <button onClick={()=>{handleProfileEdit();resetOnClick()}}>Save</button>
+            <button onClick={()=>{handleProfileEdit();resetOnClick();}}>Save</button>
             <button onClick={()=>{setIsModalOpenProfile(false);resetOnClick()}}>Close</button>
 
 

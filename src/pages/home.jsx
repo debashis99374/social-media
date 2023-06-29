@@ -26,12 +26,15 @@ export default function Home() {
     const inputRef = useRef(null);
 
     const [trendy,setTrendy]=useState(false)
-    const [sort,setSort]=useState(false)
+    const [recent,setRecent]=useState(false)
 
 
     let filteredArr=postData.allPosts
     if(trendy){
       filteredArr=filteredArr.filter(el=>el.likes.likeCount>=30)
+    }
+    if(recent){
+      filteredArr=filteredArr.sort((a,b)=>new Date(b.createdAt) - new Date(a.createdAt))
     }
   
   const handleInput=(e)=>{
@@ -56,17 +59,17 @@ export default function Home() {
         </div>
         <div className="homepage-container-filter-sort">
           <button onClick={()=>setTrendy(true)}>Trendy</button>
-          <button >Recent</button>
+          <button onClick={()=>setRecent(true)} >Recent</button>
 
         </div>
         <div className="allPosts-container">
           {filteredArr.map(el=>(
            
             <li>
-              <h3> {userData.allUsers.find(ell=>ell.username===el.username).firstName}  {userData.allUsers.find(ell=>ell.username===el.username).lastName}</h3> <span style={{fontSize:"10px",position:"relative",top:"-1.1cm",right:"-3.4cm"}}>{el.createdAt}</span>
-             <p>@{el.username}</p>
-             <p>{el.content}</p> 
-             {el.likes.likedBy.find(el=>el.username===userData.user.username)?<button onClick={()=>dislikePostHandler(el._id)}><AiFillHeart/></button>:<button onClick={()=>likePostHandler(el._id)}><AiOutlineHeart/></button>} <span style={{marginLeft:"-.5cm"}}>{el.likes.likeCount}</span>
+              <h3> {userData.allUsers.find(ell=>ell.username===el.username).firstName}  {userData.allUsers.find(ell=>ell.username===el.username).lastName}</h3> <span className="allPosts-container-span1" >{el.createdAt}</span>
+             <p className="allPosts-container-p1">@{el.username}</p>
+             <p className="allPosts-container-p2">{el.content}</p> 
+             {el.likes.likedBy.find(el=>el.username===userData.user.username)?<button onClick={()=>dislikePostHandler(el._id)}><AiFillHeart/></button>:<button onClick={()=>likePostHandler(el._id)}><AiOutlineHeart/></button>} <span className="allPosts-container-span2" >{el.likes.likeCount}</span>
              <button><AiOutlineComment/></button>
              <button><BsFillShareFill/></button>
             {userData.bookmarks.find(ell=>ell._id===el._id)?<button onClick={()=>{removeBookmarkHandler(el._id)}}><BsBookmarkFill/></button>:<button onClick={()=>addBookmarkHandler(el._id)} ><BsBookmark/></button>} 

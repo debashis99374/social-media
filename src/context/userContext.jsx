@@ -95,7 +95,7 @@ export function UserProvider({children}){
             authorization: token,
           }
         })
-        userDispatch({type:"all-users",payLoad:response.data.users})
+        userDispatch({type:"all-users",payLoad:response.data.user})
 
       }catch(e){
         console.log(e)
@@ -107,6 +107,6 @@ export function UserProvider({children}){
     },[])
 
     return(
-        <UserContext.Provider value={{userData,userDispatch,addBookmarkHandler,removeBookmarkHandler,followUserHandler,unfollowUserHandler}}>{children}</UserContext.Provider>
+        <UserContext.Provider value={{userData,userDispatch,addBookmarkHandler,removeBookmarkHandler,followUserHandler,unfollowUserHandler,editUserHandler}}>{children}</UserContext.Provider>
     )
 }

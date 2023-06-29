@@ -21,7 +21,7 @@ export default function NavBar(){
         <div className='navbar'>
             
             <div className='navbar-left'>
-            <span>Connect </span> Me
+           <span>Connect </span> Me
             <div className='icons'>
                 <nav>
                <NavLink className="NavLink" to='/'><AiOutlineHome/></NavLink> 

@@ -39,4 +39,54 @@
     color: orange;
     transform: scale(1.1);
   }
-  
+
+
+  /*end of responsiveness for desktop--------------------------------------------------------------------------*/
+
+  @media screen and (min-width: 360px) and (max-width: 768px) {
+    .leftsidebarDiv{
+      padding: 30px;
+      padding-left: 20px;
+      
+      background-color:rgb(235, 253, 253);
+     
+      width:1cm
+}
+.leftsidebarDiv>nav{
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+.leftsidebarDiv>nav>.nav-link {
+   
+   text-decoration: none;
+   color: black;
+   font-weight: 400;
+   font-size: 10px;
+ }
+ 
+ .leftsidebarDiv>nav>.nav-link:hover
+  {
+   text-decoration: none;
+   font-weight: 500;
+   
+ }
+ 
+
+ .leftsidebarDiv>nav> button {
+   height: .5cm;
+   width: 1.5cm;
+   font-size: 10px;
+   color:white;
+   background-color: rgb(188, 124, 4);
+   border: 0px solid;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: transform 0.3s ease-in-out;
+ }
+ .leftsidebarDiv>nav> button:hover{
+   color: orange;
+   transform: scale(1.1);
+ }
+    
+  }
