@@ -17,6 +17,9 @@
     font-size: 20px;
     color: rgb(21, 20, 20);
 }
+.allPosts-explore-page-span1{
+    margin-left: -.5cm;
+}
 .allPosts-explore-page-bttn{
     background-color:rgb(235, 253, 253) ;
     color: black;
@@ -29,6 +32,46 @@
     transform: scale(1.1);
     
 }
+/* end foe desktop-------------------------------------------------------------------- */
+@media screen and (min-width: 360px) and (max-width: 768px) {
+    .explore-page-container{
+        background-color: rgb(235, 253, 253);
+        width: 10cm;
+        padding: 20px;
+        position: relative;
+        bottom: 35.7cm;
+        right: -2.3cm;
+    }
+    
+    
+    .allPosts-explore-page{
+        width: 80%;
+        margin-left: 1cm;
+        margin-top: 1cm;
+    }
+    .allPosts-explore-page li h3{
+        font-size: 15px;
+        color: rgb(21, 20, 20);
+    }
+    .allPosts-explore-page li p{
+        font-size: 10px;
+    }
+    .allPosts-explore-page-span1{
+        margin-left: 0cm;
+    }
+    .allPosts-explore-page-bttn{
+        background-color:rgb(235, 253, 253) ;
+        color: black;
+        font-size: 15px;
+       margin: 0cm 0cm 0cm .5cm;
+        
+    }
+    .allPosts-explore-page-bttn:hover{
+        color: orange;
+        transform: scale(1.1);
+        
+    }
+  }
 
 
 
