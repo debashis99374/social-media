@@ -6,9 +6,19 @@ import { UserContext } from "../../context/userContext"
 import { PostContext } from "../../context/postContext"
 
 export default function ProfileModal({setIsModalOpenProfile}){
-    const {currentUser}=useContext(AuthContext)
+    
     const {userData,userDispatch}=useContext(UserContext)
     const {postData}=useContext(PostContext)
+
+
+    const [edit,setEdit]=useState({
+       bio:"",
+       portfolio_link:"",
+       avatar:"",
+
+
+    })
+    const {bio,portfolio_link,avatar}=edit 
 
     const [isBio,setIsBio]=useState("")
     const [url,setUrl]=useState("")
@@ -25,11 +35,14 @@ export default function ProfileModal({setIsModalOpenProfile}){
 
     const capitalizeFirstLetter=(str)=>str.charAt(0).toUpperCase()+str.slice(1)
     const handleProfileEdit=()=>{
-        const index=userData.allUsers.findIndex(el=>el.username===currentUser.username)
-        const newObj={...userData.allUsers[index],bio:isBio,portfolio_link:url,avatar:isAvatar}
-        console.log(newObj)
+       
         
-        userDispatch({type:"all-users"})
+        const index=userData.allUsers.findIndex(el=>el.username===userData.user.username)
+        const newObj={...userData.allUsers[index],bio:bio,portfolio_link:portfolio_link,avatar:avatar}
+        const copyOfAllUser=[...userData.allUsers]
+        copyOfAllUser[index]=newObj
+
+        userDispatch({type:"all-users",payLoad:copyOfAllUser})
         
         
 
@@ -37,27 +50,32 @@ export default function ProfileModal({setIsModalOpenProfile}){
         setIsModalOpenProfile(false)
 
     }
+    const resetOnClick=()=>{
+        setIsAvatar("")
+        setIsBio("")
+        setUrl("")
+    }
     return(
         <div className="container-profile-editModal">
 
-            <h2>{capitalizeFirstLetter(currentUser.firstName)} {capitalizeFirstLetter(currentUser.lastName)}</h2>
+            <h2>{capitalizeFirstLetter(userData.user.firstName)} {capitalizeFirstLetter(userData.user.lastName)}</h2>
             <p>Choose Your Avatar:</p>
             <div className="container-profile-editModal-images-link">
                 
             {avatarPictureLinks.map(el=>(
                 <li >
-                    <img className="container-profile-editModal-images" value={el} src={el} onClick={(e)=>setIsAvatar(e.target.value)} alt="profile pic"/>
+                    <img className="container-profile-editModal-images" value={el} src={el} onClick={(e)=>setEdit({...edit,avatar:e.target.value})} alt="profile pic"/>
                 </li>
             ))}
             </div>
             <p>Bio:</p>
-            <input placeholder="bio.." value={isBio} onChange={(e)=>setIsBio(e.target.value)}/>
+            <input placeholder="bio.." value={bio} onChange={(e)=>setEdit({...edit,bio:e.target.value})}/>
             <p>Portfolio URL: </p>
-            <input placeholder="URL..." value={url} onChange={(e)=>setUrl(e.target.value)}/> <br/>
+            <input placeholder="URL..." value={portfolio_link} onChange={(e)=>setEdit({...edit,portfolio_link:e.target.value})}/><br/>
             
             
-            <button onClick={()=>{handleProfileEdit();}}>Save</button>
-            <button onClick={()=>setIsModalOpenProfile(false)}>Close</button>
+            <button onClick={()=>{handleProfileEdit();resetOnClick()}}>Save</button>
+            <button onClick={()=>{setIsModalOpenProfile(false);resetOnClick()}}>Close</button>
 
 
         </div>

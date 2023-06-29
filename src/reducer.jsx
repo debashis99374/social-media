@@ -46,7 +46,13 @@ switch(type){
    
       return { ...state, bookmarks: payLoad };
       
-      
+      //case "modal":
+       // const index=state.allUsers.findIndex(el=>el._id===state.user._id)
+       // const newObj={...state.allUsers[index],bio:payLoad.b,portfolio_link:payLoad.u,avatar:payLoad.a}
+       // const copyOfAllUsers=[...state.allUsers]
+       // copyOfAllUsers[index]=newObj
+       // return {...state,allUsers:copyOfAllUsers}
+        
 
     default :
     return state

@@ -18,7 +18,7 @@ export default function Profile(){
 
     const {postData,createPost,likePostHandler,dislikePostHandler,deletePostHandler}=useContext(PostContext)
   const {userData,addBookmarkHandler,removeBookmarkHandler}=useContext(UserContext)
-  const {currentUser}=useContext(AuthContext)
+  
     const capitalizeFirstLetter=(str)=>str.charAt(0).toUpperCase()+str.slice(1)
     const handleEdit=(el)=>{
         setElement(el)
@@ -26,7 +26,7 @@ export default function Profile(){
         
 
     }
-    console.log(currentUser)
+    
 
     
     return(
@@ -38,6 +38,8 @@ export default function Profile(){
                 <h3> {capitalizeFirstLetter(userData.user.firstName)} {capitalizeFirstLetter(userData.user.lastName)} </h3>
                 <p className="container-profile-p1">@{userData.user.username}</p>
                 <button onClick={()=>setIsModalOpenProfile(true)}>EDIT</button>
+               {userData.allUsers?.find(el=>el.username===userData.user.username)?.bio&&(<p>Bio:-{userData.allUsers?.find(el=>el.username===userData.user.username)?.bio}</p>)} 
+              {userData.allUsers?.find(el=>el.username===userData.user.username)?.portfolio_link&&(<p>Portfolio:- <a href={userData.allUsers?.find(el=>el.username===userData.user.username)?.portfolio_link} target="blank">{userData.allUsers?.find(el=>el.username===userData.user.username)?.portfolio_link}</a></p>)}  
                 <p className="container-profile-p2">Posts:-</p>
                 <div className="container-profile-posts">
                     {postData.allPosts.filter(el=>el.username===userData.user.username).map(el=>(

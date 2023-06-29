@@ -8,6 +8,7 @@ export  function PostProvider({children}){
     const {token}=useContext(AuthContext)
     const [postData,postDispatch]=useReducer(reducer,{
         allPosts:[],
+        
        
     })
 
@@ -123,6 +124,8 @@ export  function PostProvider({children}){
         getAllPosts();
         
     },[])
+
+    
 
 
 

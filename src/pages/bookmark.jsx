@@ -12,7 +12,7 @@ import "../css/bookmark.css"
 export default function BookMark(){
     const {postData,createPost,likePostHandler,dislikePostHandler,deletePostHandler}=useContext(PostContext)
   const {userData,addBookmarkHandler,removeBookmarkHandler}=useContext(UserContext)
-  const {currentUser}=useContext(AuthContext)
+  
     
     return(
         <div className="bookmark">

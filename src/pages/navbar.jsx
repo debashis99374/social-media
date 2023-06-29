@@ -4,13 +4,16 @@ import { BiMoon } from "react-icons/bi";
 import "../css/navbar.css"
 import LeftsideBar from '../components/leftsideBar';
 import RightsideBar from '../components/RightsideBar/rightsideBar';
-import { AuthContext } from '../context/authContext';
-import { useContext } from 'react';
+
+import { useContext, useState } from 'react';
 import { UserContext } from '../context/userContext';
+import SearchModal from '../components/searchModal/searchModal';
 
 export default function NavBar(){
     const navigate=useNavigate()
-    const {currentUser}=useContext(AuthContext)
+    const [searchInput,setSearchInput]=useState("")
+    const [searchModalOpen,setSearchModalOpen]=useState(false)
+    
     const {userData}=useContext(UserContext)
     const capitalizeFirstLetter=(str)=>str.charAt(0).toUpperCase()+str.slice(1)
     return (
@@ -27,12 +30,12 @@ export default function NavBar(){
                 </div>
                 <div className="search">
          <AiOutlineSearch className='search-icon'/>
-         <input type='text' placeholder='search...'/>
+         <input type='text' placeholder='search...' value={searchInput} onChange={(e)=>{setSearchInput(e.target.value);setSearchModalOpen(true)}}/>
                 </div>
                 <div className='navbar-right'>
                     <div className='userdiv'>
-                    <img src="https://img.freepik.com/premium-vector/man-profile-cartoon_18591-58482.jpg?w=2000" onClick={()=>navigate("/profile")}/>
-                    <span onClick={()=>navigate("/profile")}>{capitalizeFirstLetter(currentUser.firstName)} {capitalizeFirstLetter(currentUser.lastName)}</span>
+                    <img src={userData.allUsers?.find(el=>el.username===userData.user.username)?.avatar} onClick={()=>navigate("/profile")}/>
+                    <span onClick={()=>navigate("/profile")}>{capitalizeFirstLetter(userData.user.firstName)} {capitalizeFirstLetter(userData.user.lastName)}</span>
                     </div>
                 </div>
 
@@ -40,8 +43,10 @@ export default function NavBar(){
             </div>
             
         </div>
+       
         <LeftsideBar/>
         <RightsideBar/>
+        {searchModalOpen&&(<SearchModal searchInput={searchInput} setSearchModalOpen={setSearchModalOpen}/>)} 
         </>
         
     )

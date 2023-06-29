@@ -19,7 +19,7 @@ export function UserProvider({children}){
         bookmarks:[],
 
     })
-    console.log(userData.user)
+    
     async function getAllUsers(){
         try{
         const res=await fetch ("/api/users")
@@ -88,6 +88,19 @@ export function UserProvider({children}){
         console.log(e)
       }
     }
+    const editUserHandler=async(userData)=>{
+      try{
+        const response=await  axios.post(`/api/users/edit`,{userData},{
+          headers:{
+            authorization: token,
+          }
+        })
+        userDispatch({type:"all-users",payLoad:response.data.users})
+
+      }catch(e){
+        console.log(e)
+      }
+    } 
   
     useEffect(()=>{
         getAllUsers()

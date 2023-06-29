@@ -28,6 +28,13 @@
    right: 2.1cm;
 
 }
+.homepage-container-filter-sort{
+    margin-left: 30px;
+}
+.homepage-container-filter-sort button{
+    margin-top: 20px;
+    margin-left: 10px;
+}
 .allPosts-container{
     width: 80%;
     margin-left: 1cm;

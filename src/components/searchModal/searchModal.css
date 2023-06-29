@@ -1,0 +1,23 @@
+.container-search-modal{
+    position: fixed;
+    top: 23%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    background-color:rgb(228, 254, 255);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    max-width: 90%;
+    z-index: 9999; 
+}
+.container-search-modal-p{
+    font-size: 15px;
+    color: rgb(63, 63, 63);
+    cursor: pointer;
+    
+}
+.container-search-modal-p:hover{
+    color: black;
+    
+}

@@ -9,8 +9,8 @@ import NavBar from "./navbar";
 
 
 export default function Explore(){
-    const {postData}=useContext(PostContext)
-    const {userData}=useContext(UserContext)
+    const {postData,likePostHandler,dislikePostHandler}=useContext(PostContext)
+    const {userData,addBookmarkHandler,removeBookmarkHandler}=useContext(UserContext)
     
 
     return(
@@ -25,10 +25,10 @@ export default function Explore(){
                     
                    <p>@{el.username}</p>
                    <p>{el.content}</p>
-             <button className="allPosts-explore-page-bttn"><AiOutlineHeart/></button>
+                   {el.likes.likedBy.find(el=>el.username===userData.user.username)?<button onClick={()=>dislikePostHandler(el._id)} className="allPosts-explore-page-bttn"><AiFillHeart/></button>:<button onClick={()=>likePostHandler(el._id)} className="allPosts-explore-page-bttn"><AiOutlineHeart/></button>} <span style={{marginLeft:"-.5cm"}}>{el.likes.likeCount}</span>
              <button className="allPosts-explore-page-bttn"><AiOutlineComment/></button>
              <button className="allPosts-explore-page-bttn"><BsFillShareFill/></button>
-             <button className="allPosts-explore-page-bttn" ><BsBookmark/></button>
+             {userData.bookmarks.find(ell=>ell._id===el._id)?<button onClick={()=>{removeBookmarkHandler(el._id)}} className="allPosts-explore-page-bttn"><BsBookmarkFill/></button>:<button onClick={()=>addBookmarkHandler(el._id)} className="allPosts-explore-page-bttn"><BsBookmark/></button>} 
 
                 </li>
             ))}
