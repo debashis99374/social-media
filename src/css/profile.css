@@ -64,6 +64,80 @@
    transform: scale(1.1);
     
 }
+/*end for desktop------------------------------------------------------------------------------------------------------*/
+@media screen and (min-width: 360px) and (max-width: 768px){
+    .container-profile{
+        background-color: rgb(235, 253, 253);
+        width: 10cm;
+        padding: 20px;
+        position: relative;
+        bottom: 35.7cm;
+        right: -2.3cm;
+        text-align: center;
+    }
+    .container-profile img {
+        display: block;
+        margin: 0 auto;
+        width: 70px;
+      }
+      
+    
+    .container-profile>h3{
+       
+       
+       margin-top: .0cm;
+       
+       
+       text-align: center;
+        font-size: 20px;
+    
+    }
+    .container-profile>button{
+        width: 60px;
+        height: 30px;
+        font-size: 10px;
+        padding: 10px;
+        position: relative;
+        top: -.5cm;
+        left: 8%;
+        transform: translate(-50%, -50%);
+        
+    }
+    .container-profile-p1 {
+        position: relative;
+        top: -.5cm;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    
+    }
+    .container-profile-p2{
+        position: relative;
+        top: 2.5cm;
+        left: -11cm;  
+    }
+    .container-profile-posts{
+        width: 80%;
+        margin-left: 1cm;
+        margin-top: 0cm;
+    }
+    .container-profile-posts p{
+        font-size: 10px;
+    }
+    
+    .container-profile-posts>li>button{
+        background-color:rgb(235, 253, 253) ;
+        color: black;
+        font-size: 15px;
+       margin: 0cm 0cm 0cm .2cm;
+        
+    }
+    .container-profile-posts>li>button:hover{
+       color: orange;
+       transform: scale(1.1);
+        
+    }
+
+}
 
 
 

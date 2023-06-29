@@ -11,14 +11,7 @@ export default function ProfileModal({setIsModalOpenProfile}){
     const {postData}=useContext(PostContext)
 
 
-    const [edit,setEdit]=useState({
-       bio:"",
-       portfolio_link:"",
-       avatar:"",
-
-
-    })
-    const {bio,portfolio_link,avatar}=edit 
+    
 
     const [isBio,setIsBio]=useState("")
     const [url,setUrl]=useState("")
@@ -35,6 +28,12 @@ export default function ProfileModal({setIsModalOpenProfile}){
 
     const capitalizeFirstLetter=(str)=>str.charAt(0).toUpperCase()+str.slice(1)
     const handleProfileEdit=()=>{
+
+        const index=userData.allUsers.findIndex(el=>el.username===userData.user.username)
+        const newObj={...userData.allUsers[index],bio:isBio,portfolio_link:url,avatar:isAvatar}
+        const copyOfAllUsers=[...userData.allUsers]
+        copyOfAllUsers[index]=newObj
+        userDispatch({type:"all-users",payLoad:copyOfAllUsers})
        
         
        
@@ -58,14 +57,14 @@ export default function ProfileModal({setIsModalOpenProfile}){
                 
             {avatarPictureLinks.map(el=>(
                 <li >
-                    <img className="container-profile-editModal-images" value={el} src={el} onClick={(e)=>setEdit({...edit,avatar:e.target.value})} alt="profile pic"/>
+                    <img className="container-profile-editModal-images" value={el} src={el} onClick={(e)=>setIsAvatar(e.target.value)} alt="profile pic"/>
                 </li>
             ))}
             </div>
             <p>Bio:</p>
-            <input placeholder="bio.." value={bio} onChange={(e)=>setEdit({...edit,bio:e.target.value})}/>
+            <input placeholder="bio.." value={isBio} onChange={(e)=>setIsBio(e.target.value)}/>
             <p>Portfolio URL: </p>
-            <input placeholder="URL..." value={portfolio_link} onChange={(e)=>setEdit({...edit,portfolio_link:e.target.value})}/><br/>
+            <input placeholder="URL..." value={url} onChange={(e)=>setUrl(e.target.value)}/><br/>
             
             
             <button onClick={()=>{handleProfileEdit();resetOnClick();}}>Save</button>
