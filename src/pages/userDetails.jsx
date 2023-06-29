@@ -51,7 +51,7 @@ export default function Details(){
                    
                 
                 <p className="container-user-posts-p4">{el.content}</p> 
-                {el.likes.likedBy.find(el=>el.username===userData.user.username)?<button className="container-user-posts-bttn-w" onClick={()=>dislikePostHandler(el._id)}><AiFillHeart/></button>:<button className="container-user-posts-bttn-w" onClick={()=>likePostHandler(el._id)}><AiOutlineHeart/></button>} <span style={{marginLeft:"-.5cm"}}>{el.likes.likeCount}</span>
+                {el.likes.likedBy.find(el=>el.username===userData.user.username)?<button className="container-user-posts-bttn-w" onClick={()=>dislikePostHandler(el._id)}><AiFillHeart/></button>:<button className="container-user-posts-bttn-w" onClick={()=>likePostHandler(el._id)}><AiOutlineHeart/></button>} <span className="container-user-posts-span" >{el.likes.likeCount}</span>
              <button className="container-user-posts-bttn-w"><AiOutlineComment/></button>
              <button className="container-user-posts-bttn-w"><BsFillShareFill/></button>
              {userData.bookmarks.find(ell=>ell._id===el._id)?<button className="container-user-posts-bttn-w" onClick={()=>{removeBookmarkHandler(el._id)}}><BsBookmarkFill/></button>:<button className="container-user-posts-bttn-w" onClick={()=>addBookmarkHandler(el._id)} ><BsBookmark/></button>} 
