@@ -17,6 +17,7 @@ export default function ProfileModal({setIsModalOpenProfile}){
     const [url,setUrl]=useState("")
     const [isAvatar,setIsAvatar]=useState("")
 
+
     const avatarPictureLinks = [
         "https://i.ibb.co/jRVZ3Xp/avataaars-6.png",
         "https://i.ibb.co/4KNJz5D/avataaars-5.png",
@@ -33,6 +34,7 @@ export default function ProfileModal({setIsModalOpenProfile}){
         const newObj={...userData.allUsers[index],bio:isBio,portfolio_link:url,avatar:isAvatar}
         const copyOfAllUsers=[...userData.allUsers]
         copyOfAllUsers[index]=newObj
+        console.log(isAvatar)
         userDispatch({type:"all-users",payLoad:copyOfAllUsers})
        
         
@@ -57,7 +59,7 @@ export default function ProfileModal({setIsModalOpenProfile}){
                 
             {avatarPictureLinks.map(el=>(
                 <li >
-                    <img className="container-profile-editModal-images" value={el} src={el} onClick={(e)=>setIsAvatar(e.target.value)} alt="profile pic"/>
+                <img className="container-profile-editModal-images" value={el} src={el} onClick={()=>setIsAvatar(el)} alt="profile pic"/>
                 </li>
             ))}
             </div>
