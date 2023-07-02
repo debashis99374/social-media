@@ -37,7 +37,7 @@ function App() {
      <Route path="/bookmark" element={<BookMark/>} />
      <Route path="/explore" element={<Explore/>} />
      <Route path="/details/:detailsEl" element={<Details/>} />
-     <Route path="/profile" element={<Profile/>} />
+     <Route path="/profile" element={<RequirsAuth><Profile/></RequirsAuth>} />
 
 
      <Route path="/signup" element={<Signup/>} />
