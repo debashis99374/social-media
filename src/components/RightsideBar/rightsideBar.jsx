@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { PostContext } from "../../context/postContext"
 import './rightsideBar.css'
 import { UserContext } from "../../context/userContext"
@@ -8,6 +8,7 @@ export default function RightsideBar(){
     const navigate=useNavigate()
     const {postData}=useContext(PostContext)
     const {userData,followUserHandler,unfollowUserHandler}=useContext(UserContext)
+    const [showMenu,setShowMenu]=useState(false)
     const handleAddFollower=(id)=>{
         const findEl=userData.allUsers.find(el=>el._id===id).followers.push(userData.user)
 
@@ -23,7 +24,7 @@ export default function RightsideBar(){
     
     return(
         <>
-        <div className="rightsidebarDiv">
+        <div className={`rightsidebarDiv ${showMenu?"show":""}`}>
             <h4>WHO TO FOLLOW</h4>
             <div className="allUsersList">
                 {userData.allUsers.map(el=>(
@@ -38,6 +39,11 @@ export default function RightsideBar(){
             </div>
 
         </div>
+        <button className={`hamburger ${showMenu ? "show" : ""}`} onClick={()=>setShowMenu(!showMenu)}>
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         
         </>
     )

@@ -3,26 +3,29 @@
     background-color:whitesmoke;
     box-shadow: 1px 2px 2px gray;
     border-radius: 5px;
-    width: 10cm;
-    height: 10cm;
+    max-width: 400px;
+    
     margin: auto;
     margin-top: 3cm;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    border: 1px solid #ccc;
+    
   }  
+  .landing-main-container>h4{
+    text-align: center;
+  }
  
   .landing-main-container>h4>span{
     font-size: 40px;
    color: orange;
   }
   .landing-main-container>p{
-    font-size: 17px;
+    font-size: 20px;
     
     
    color: rgb(52, 52, 52);
-   margin-bottom: 15px;
+  
+
   }
   .landing-main-container>p>span{
     font-size: 17px;
@@ -30,14 +33,39 @@
     
    color: orange;
   }
+  .landing-main-container-p2{
+    text-align: center;
+  }
+  .landing-main-container form{
+    display: flex;
+    flex-direction: column;
+  }
+  .landing-main-container form lable{
+    margin-bottom: 5px;
+  }
+  .landing-main-container form input{
+   padding: 10px;
+   margin-bottom: 10px;
+   width: 90%;
+   border-radius: 3px;
+  }
+  .landing-main-container form button{
+    font-size: 17px;
+    width: 95%;
+    
+    
+    
+    
+   
+  }
   .landing-main-container>button{
     font-size: 17px;
-    width: 80%;
+    width: 95%;
     
     
     
     
-   color: orange;
+   
   }
  
 

@@ -1,6 +1,8 @@
 import {useState,useEffect,useContext} from 'react'
 import { AuthContext } from '../context/authContext'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,Link } from 'react-router-dom'
+
+import "../css/signUp.css"
 
 
 export default function Signup(){
@@ -24,6 +26,7 @@ export default function Signup(){
     return(
         <>
        <div className='container-signup'>
+        <h3>Sign Up</h3>
         <form onSubmit={handleSignup}>
             <lable>First Name:</lable> 
             <input type='text' value={signupForm.firstName} onChange={(e)=>setSignupForm({...signupForm,firstName:e.target.value})} />
@@ -35,6 +38,7 @@ export default function Signup(){
             <input type='password' value={signupForm.password} onChange={(e)=>setSignupForm({...signupForm,password:e.target.value})} />
             <button type='submit'>Submit</button>
         </form>
+        <p>Already a user? <Link to='/login'>Log In</Link> </p>
        </div>
         </>
     )

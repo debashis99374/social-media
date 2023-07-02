@@ -1,0 +1,46 @@
+.container-signup {
+    max-width: 400px;
+    box-shadow: 1px 2px 2px gray;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 3cm;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+  }
+  .container-signup  h3{
+    text-align: center;
+  }
+  .container-signup  p{
+    text-align: center;
+  }
+  
+  .container-signup form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .container-signup label {
+    margin-bottom: 5px;
+  }
+  
+  .container-signup input {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .container-signup button {
+    padding: 10px;
+    
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .container-signup button:hover {
+    
+  }
