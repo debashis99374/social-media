@@ -1,4 +1,4 @@
-import {createContext,useReducer,useEffect, useContext} from 'react'
+import {createContext,useReducer,useEffect, useContext, useState} from 'react'
 import reducer from '../reducer'
 import axios from 'axios'
 import { AuthContext } from './authContext'
@@ -126,10 +126,10 @@ export  function PostProvider({children}){
     },[])
 
     
-
+   const [openCreateBttn,setOpenCreateBttn]=useState(false)
 
 
     return(
-        <PostContext.Provider value={{postData,postDispatch,createPost,likePostHandler,dislikePostHandler,deletePostHandler,editPostHandler}}>{children}</PostContext.Provider>
+        <PostContext.Provider value={{openCreateBttn,setOpenCreateBttn,postData,postDispatch,createPost,likePostHandler,dislikePostHandler,deletePostHandler,editPostHandler}}>{children}</PostContext.Provider>
     )
 }

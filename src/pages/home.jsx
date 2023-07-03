@@ -15,11 +15,12 @@ import { AuthContext } from "../context/authContext";
 
 
 import {  toast } from 'react-toastify';
+import CreatePostModal from "../components/createpostModal/createpostmodal";
 
 
 
 export default function Home() {
-  const {postData,createPost,likePostHandler,dislikePostHandler}=useContext(PostContext)
+  const {postData,createPost,likePostHandler,dislikePostHandler,openCreateBttn,setOpenCreateBttn}=useContext(PostContext)
   const {userData,addBookmarkHandler,removeBookmarkHandler}=useContext(UserContext)
 
     const [inputText,setinputText]=useState({content:''})
@@ -27,6 +28,7 @@ export default function Home() {
 
     const [trendy,setTrendy]=useState(false)
     const [recent,setRecent]=useState(false)
+    
 
 
     let filteredArr=postData.allPosts
@@ -50,7 +52,7 @@ export default function Home() {
   
   return (
     <div className="home">
-      <NavBar/>
+      <NavBar />
       <div className="homepage-container">
         <div className="comments-container">
           <input type="text" placeholder="Share your thoughts..." onChange={handleInput} ref={inputRef}/>
@@ -81,7 +83,7 @@ export default function Home() {
         </div>
 
       </div>
-      
+      {openCreateBttn&&(<CreatePostModal/> )}
     </div>
   );
 }

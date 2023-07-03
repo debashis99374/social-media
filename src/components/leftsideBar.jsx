@@ -1,8 +1,12 @@
-import {NavLink} from 'react-router-dom'
+import {NavLink,useNavigate} from 'react-router-dom'
 import { BsRocket,BsBookmark } from "react-icons/bs";
 import '../css/leftsideBar.css'
+import { useContext } from 'react';
+import { PostContext } from '../context/postContext';
 
 export default function LeftsideBar(){
+  const {setOpenCreateBttn}=useContext(PostContext)
+  const navigate=useNavigate()
     return(
         <>
         <div className="leftsidebarDiv">
@@ -15,10 +19,10 @@ export default function LeftsideBar(){
         <BsBookmark className="nav-icon" />
         <span className="nav-text">BOOKMARK</span>
       </NavLink>
-      <button>CREATE+</button>
+      <button  onClick={()=>{setOpenCreateBttn(true);navigate('/')}}>CREATE+</button>
     </nav>
             
-
+        
         </div>
 
         </>

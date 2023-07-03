@@ -44,9 +44,9 @@ export default function NavBar(){
             
         </div>
        
-        <LeftsideBar/>
+        <LeftsideBar />
         <RightsideBar/>
-        {searchModalOpen&&(<SearchModal searchInput={searchInput} setSearchModalOpen={setSearchModalOpen}/>)} 
+        {searchModalOpen&&(<SearchModal searchInput={searchInput} />)} 
         </>
         
     )
