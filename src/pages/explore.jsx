@@ -1,4 +1,4 @@
-import { useCallback, useContext } from "react"
+import {  useContext,useEffect,useState } from "react"
 import { PostContext } from "../context/postContext"
 import { UserContext } from "../context/userContext"
 import { AiOutlineHeart,AiFillHeart,AiOutlineComment } from "react-icons/ai";
@@ -8,14 +8,20 @@ import "../css/explore.css"
 import NavBar from "./navbar";
 
 
+
+
 export default function Explore(){
     const {postData,likePostHandler,dislikePostHandler}=useContext(PostContext)
     const {userData,addBookmarkHandler,removeBookmarkHandler}=useContext(UserContext)
+
+   
     
 
     return(
        <div className="explore">
-         <NavBar/>
+        
+
+   <NavBar/>
         <div className="explore-page-container">
            <div className="allPosts-explore-page">
             {postData.allPosts.map(el=>(
@@ -34,6 +40,8 @@ export default function Explore(){
             ))}
            </div>
         </div>
+
+        
 
        </div>
     )

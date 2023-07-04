@@ -13,20 +13,49 @@ import RequirsAuth from './components/requirsAuth';
 import Details from './pages/userDetails';
 import Profile from './pages/profile';
 
+import { useEffect,useState } from 'react';
+
 
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+import { BallTriangle } from  'react-loader-spinner'
 
 
 
 
 
 function App() {
+  const [isLoading,setIsLoading]=useState(true)
+  useEffect(()=>{
+setTimeout(()=>{
+  setIsLoading(false)
+},2000)
+  },[])
   return (
+   
     <div className="App">
-     
-      <Routes>
+      {isLoading&&(<BallTriangle
+  height={100}
+  width={100}
+  
+
+  radius={5}
+  color="#4fa94d"
+  ariaLabel="ball-triangle-loading"
+  wrapperClass={{}}
+  wrapperStyle={{
+    position:"fixed",
+    top:"50%",
+    left:"50%",
+   
+   
+  }}
+  visible={true}
+/>)}
+{!isLoading&&(<>
+  <Routes>
      <Route path="/" element={<RequirsAuth><Home/></RequirsAuth>} />
      <Route path="/login" element={<Landing/>} />
      <Route path="/navbar" element={<NavBar/>} />
@@ -43,6 +72,9 @@ function App() {
      <Route path="/signup" element={<Signup/>} />
     
       </Routes>
+</>)}
+     
+      
 
       <ToastContainer/>
     
