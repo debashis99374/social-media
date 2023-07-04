@@ -21,7 +21,7 @@ import CreatePostModal from "../components/createpostModal/createpostmodal";
 
 export default function Home() {
   const {postData,createPost,likePostHandler,dislikePostHandler,openCreateBttn,setOpenCreateBttn}=useContext(PostContext)
-  const {userData,addBookmarkHandler,removeBookmarkHandler}=useContext(UserContext)
+  const {userData,addBookmarkHandler,removeBookmarkHandler,darkMode}=useContext(UserContext)
 
     const [inputText,setinputText]=useState({content:''})
     const inputRef = useRef(null);
@@ -51,9 +51,9 @@ export default function Home() {
  
   
   return (
-    <div className="home">
+    <div className="home" >
       <NavBar />
-      <div className="homepage-container">
+      <div className="homepage-container" style={{color:darkMode?"white":"black" ,backgroundColor:darkMode?"black":"rgb(235, 253, 253)"}}>
         <div className="comments-container">
           <input type="text" placeholder="Share your thoughts..." onChange={handleInput} ref={inputRef}/>
           <button onClick={()=>{createPost(inputText);resetOnClick();}} >POST</button>
@@ -71,10 +71,10 @@ export default function Home() {
               <h3> {userData.allUsers.find(ell=>ell.username===el.username).firstName}  {userData.allUsers.find(ell=>ell.username===el.username).lastName}</h3> <span className="allPosts-container-span1" >{el.createdAt}</span>
              <p className="allPosts-container-p1">@{el.username}</p>
              <p className="allPosts-container-p2">{el.content}</p> 
-             {el.likes.likedBy.find(el=>el.username===userData.user.username)?<button onClick={()=>dislikePostHandler(el._id)}><AiFillHeart/></button>:<button onClick={()=>likePostHandler(el._id)}><AiOutlineHeart/></button>} <span className="allPosts-container-span2" >{el.likes.likeCount}</span>
-             <button><AiOutlineComment/></button>
-             <button><BsFillShareFill/></button>
-            {userData.bookmarks.find(ell=>ell._id===el._id)?<button onClick={()=>{removeBookmarkHandler(el._id)}}><BsBookmarkFill/></button>:<button onClick={()=>addBookmarkHandler(el._id)} ><BsBookmark/></button>} 
+             {el.likes.likedBy.find(el=>el.username===userData.user.username)?<button onClick={()=>dislikePostHandler(el._id)} style={{backgroundColor:darkMode?"black":"" ,color:darkMode?"white":""}}><AiFillHeart/></button>:<button onClick={()=>likePostHandler(el._id)}style={{backgroundColor:darkMode?"black":"" ,color:darkMode?"white":""}}><AiOutlineHeart/></button>} <span className="allPosts-container-span2" >{el.likes.likeCount}</span>
+             <button style={{backgroundColor:darkMode?"black":"" ,color:darkMode?"white":""}}><AiOutlineComment/></button>
+             <button style={{backgroundColor:darkMode?"black":"" ,color:darkMode?"white":""}}><BsFillShareFill/></button>
+            {userData.bookmarks.find(ell=>ell._id===el._id)?<button onClick={()=>{removeBookmarkHandler(el._id)}} style={{backgroundColor:darkMode?"black":"" ,color:darkMode?"white":""}}><BsBookmarkFill/></button>:<button onClick={()=>addBookmarkHandler(el._id)}  style={{backgroundColor:darkMode?"black":"" ,color:darkMode?"white":""}}><BsBookmark/></button>} 
              
               
             </li>

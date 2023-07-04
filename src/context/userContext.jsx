@@ -101,12 +101,14 @@ export function UserProvider({children}){
         console.log(e)
       }
     } 
+
+    const [darkMode,setdarkMode]=useState(false)
   
     useEffect(()=>{
         getAllUsers()
     },[])
 
     return(
-        <UserContext.Provider value={{userData,userDispatch,addBookmarkHandler,removeBookmarkHandler,followUserHandler,unfollowUserHandler,editUserHandler}}>{children}</UserContext.Provider>
+        <UserContext.Provider value={{userData,userDispatch,addBookmarkHandler,removeBookmarkHandler,followUserHandler,unfollowUserHandler,editUserHandler,darkMode,setdarkMode}}>{children}</UserContext.Provider>
     )
 }

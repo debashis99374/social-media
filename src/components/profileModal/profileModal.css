@@ -18,7 +18,9 @@
 .container-profile-editModal input{
     width: 70%;
     height: 20px;
-    border: .1px  solid skyblue;
+    border: 0px solid ;
+background-color:rgb(205, 252, 252) ;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 .container-profile-editModal-images-link{
     display: flex;

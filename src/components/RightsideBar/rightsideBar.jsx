@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom"
 export default function RightsideBar(){
     const navigate=useNavigate()
     const {postData}=useContext(PostContext)
-    const {userData,followUserHandler,unfollowUserHandler}=useContext(UserContext)
+    const {userData,followUserHandler,unfollowUserHandler,darkMode,setdarkMode}=useContext(UserContext)
     const [showMenu,setShowMenu]=useState(false)
     const handleAddFollower=(id)=>{
         const findEl=userData.allUsers.find(el=>el._id===id).followers.push(userData.user)
@@ -24,15 +24,15 @@ export default function RightsideBar(){
     
     return(
         <>
-        <div className={`rightsidebarDiv ${showMenu?"show":""}`}>
-            <h4>WHO TO FOLLOW</h4>
+        <div className={`rightsidebarDiv ${showMenu?"show":""}`} style={{color:darkMode?"white":"black" ,backgroundColor:darkMode?"black":"rgb(235, 253, 253)"}}>
+            <h4 style={{color:darkMode?"white":"black" }}>WHO TO FOLLOW</h4>
             <div className="allUsersList">
                 {userData.allUsers.map(el=>(
                     <li key={el._id}>
                         <div className="allusers-container">
                         <h4 onClick={()=>navigate(`/details/${el.username}`)}>{el.firstName} {el.lastName}</h4>
                         <p>@{el.username}</p>
-                       {userData.user.following.find(ell=>ell.username===el.username)?<button onClick={()=>{unfollowUserHandler(el._id);handleRemoveFollower(el._id)}}>UNFOLLOW</button>:<button onClick={()=>{followUserHandler(el._id);handleAddFollower(el._id)}}>FOLLOW+</button>}
+                       {userData.user.following.find(ell=>ell.username===el.username)?<button onClick={()=>{unfollowUserHandler(el._id);handleRemoveFollower(el._id)}} style={{backgroundColor:darkMode?"black":"" }}>UNFOLLOW</button>:<button onClick={()=>{followUserHandler(el._id);handleAddFollower(el._id)}} style={{backgroundColor:darkMode?"black":"" }}>FOLLOW+</button>}
                         </div>
                     </li>
                 ))}

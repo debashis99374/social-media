@@ -13,7 +13,7 @@ export default function Details(){
     const {detailsEl}=useParams()
     
     const {postData,likePostHandler,dislikePostHandler}=useContext(PostContext)
-    const {userData,addBookmarkHandler,removeBookmarkHandler,followUserHandler,unfollowUserHandler}=useContext(UserContext)
+    const {userData,addBookmarkHandler,removeBookmarkHandler,followUserHandler,unfollowUserHandler,darkMode}=useContext(UserContext)
     const details=postData.allPosts.filter(ell=>ell.username===detailsEl)
     const userDetails=userData.allUsers.find(el=>el.username===detailsEl)
 
@@ -36,12 +36,12 @@ export default function Details(){
         
        
         
-        <div className="userDetails">
+        <div className="userDetails" >
              <NavBar/>
-             <div className="container-user-details">
-             <h3 className="container-user-posts-h">{userDetails.firstName} {userDetails.lastName}</h3>
-                <p className="container-user-posts-p1">@{userDetails.username}</p>
-                 {userData.user.following.find(el=>el.username===userData.allUsers.username)?<button onClick={()=>{unfollowUserHandler(userDetails._id);handleRemoveFollower(userDetails._id)}} className="container-user-posts-bttn-1">Unfollow</button>:<button onClick={()=>{followUserHandler(userDetails._id);handleAddFollower(userDetails._id)}} className="container-user-posts-bttn-1">Follow</button>} 
+             <div className="container-user-details" style={{color:darkMode?"white":"black" ,backgroundColor:darkMode?"black":"rgb(235, 253, 253)"}}>
+             <h3 className="container-user-posts-h" style={{backgroundColor:darkMode?"black":"" ,color:darkMode?"white":""}}>{userDetails.firstName} {userDetails.lastName}</h3>
+                <p className="container-user-posts-p1" style={{backgroundColor:darkMode?"black":"" ,color:darkMode?"white":""}}>@{userDetails.username}</p>
+                 {userData.user.following.find(el=>el.username===userData.allUsers.username)?<button onClick={()=>{unfollowUserHandler(userDetails._id);handleRemoveFollower(userDetails._id)}} className="container-user-posts-bttn-1" >Unfollow</button>:<button onClick={()=>{followUserHandler(userDetails._id);handleAddFollower(userDetails._id)}} className="container-user-posts-bttn-1" >Follow</button>} 
                 <p className="container-user-posts-p2">Followers:{userDetails.followers.length}</p>
                 <p className="container-user-posts-p3">Posts:-</p>
                 <div className="container-user-posts">
@@ -51,10 +51,10 @@ export default function Details(){
                    
                 
                 <p className="container-user-posts-p4">{el.content}</p> 
-                {el.likes.likedBy.find(el=>el.username===userData.user.username)?<button className="container-user-posts-bttn-w" onClick={()=>dislikePostHandler(el._id)}><AiFillHeart/></button>:<button className="container-user-posts-bttn-w" onClick={()=>likePostHandler(el._id)}><AiOutlineHeart/></button>} <span className="container-user-posts-span" >{el.likes.likeCount}</span>
-             <button className="container-user-posts-bttn-w"><AiOutlineComment/></button>
-             <button className="container-user-posts-bttn-w"><BsFillShareFill/></button>
-             {userData.bookmarks.find(ell=>ell._id===el._id)?<button className="container-user-posts-bttn-w" onClick={()=>{removeBookmarkHandler(el._id)}}><BsBookmarkFill/></button>:<button className="container-user-posts-bttn-w" onClick={()=>addBookmarkHandler(el._id)} ><BsBookmark/></button>} 
+                {el.likes.likedBy.find(el=>el.username===userData.user.username)?<button className="container-user-posts-bttn-w" onClick={()=>dislikePostHandler(el._id)} style={{backgroundColor:darkMode?"black":"" ,color:darkMode?"white":""}}><AiFillHeart/></button>:<button className="container-user-posts-bttn-w" onClick={()=>likePostHandler(el._id)} style={{backgroundColor:darkMode?"black":"" ,color:darkMode?"white":""}}><AiOutlineHeart/></button>} <span className="container-user-posts-span" >{el.likes.likeCount}</span>
+             <button className="container-user-posts-bttn-w" style={{backgroundColor:darkMode?"black":"" ,color:darkMode?"white":""}}><AiOutlineComment/></button>
+             <button className="container-user-posts-bttn-w" style={{backgroundColor:darkMode?"black":"" ,color:darkMode?"white":""}}><BsFillShareFill/></button>
+             {userData.bookmarks.find(ell=>ell._id===el._id)?<button className="container-user-posts-bttn-w" onClick={()=>{removeBookmarkHandler(el._id)}} style={{backgroundColor:darkMode?"black":"" ,color:darkMode?"white":""}}><BsBookmarkFill/></button>:<button className="container-user-posts-bttn-w" onClick={()=>addBookmarkHandler(el._id)}  style={{backgroundColor:darkMode?"black":"" ,color:darkMode?"white":""}}><BsBookmark/></button>} 
                 
                 
             </li>

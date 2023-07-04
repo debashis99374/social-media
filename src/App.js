@@ -13,7 +13,7 @@ import RequirsAuth from './components/requirsAuth';
 import Details from './pages/userDetails';
 import Profile from './pages/profile';
 
-import { useEffect,useState } from 'react';
+import { useContext, useEffect,useState } from 'react';
 
 
 
@@ -21,6 +21,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { BallTriangle } from  'react-loader-spinner'
+import { UserContext } from './context/userContext';
 
 
 
@@ -28,6 +29,7 @@ import { BallTriangle } from  'react-loader-spinner'
 
 function App() {
   const [isLoading,setIsLoading]=useState(true)
+  const {darkMode,setdarkMode}=useContext(UserContext)
   useEffect(()=>{
 setTimeout(()=>{
   setIsLoading(false)
@@ -35,7 +37,9 @@ setTimeout(()=>{
   },[])
   return (
    
-    <div className="App">
+    <div className="App"
+    style={{color:darkMode?"white":"black" ,backgroundColor:darkMode?"black":"rgb(235, 253, 253)"}}
+    >
       {isLoading&&(<BallTriangle
   height={100}
   width={100}

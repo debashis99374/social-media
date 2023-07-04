@@ -1,6 +1,6 @@
 import {NavLink, useNavigate} from 'react-router-dom'
 import {AiOutlineHome,AiOutlineSearch} from "react-icons/ai"
-import { BiMoon } from "react-icons/bi";
+import { BiMoon,BiSun } from "react-icons/bi";
 import "../css/navbar.css"
 import LeftsideBar from '../components/leftsideBar';
 import RightsideBar from '../components/RightsideBar/rightsideBar';
@@ -13,19 +13,20 @@ export default function NavBar(){
     const navigate=useNavigate()
     const [searchInput,setSearchInput]=useState("")
     const [searchModalOpen,setSearchModalOpen]=useState(false)
+    const {darkMode,setdarkMode}=useContext(UserContext)
     
     const {userData}=useContext(UserContext)
     const capitalizeFirstLetter=(str)=>str.charAt(0).toUpperCase()+str.slice(1)
     return (
         <>
-        <div className='navbar'>
+        <div className='navbar' style={{color:darkMode?"white":"black" ,backgroundColor:darkMode?"black":"rgb(235, 253, 253)"}}>
             
             <div className='navbar-left'>
            <span>Connect </span> Me
-            <div className='icons'>
+            <div className='icons' >
                 <nav>
-               <NavLink className="NavLink" to='/'><AiOutlineHome/></NavLink> 
-               <NavLink className="NavLink"><BiMoon/></NavLink> 
+               <NavLink className="NavLink" to='/'  style={{color:darkMode?"white":"black" }}><AiOutlineHome/></NavLink> 
+               <NavLink className="NavLink" style={{color:darkMode?"white":"black" }} onClick={()=>setdarkMode(!darkMode)}>{darkMode?(<BiMoon/>):(<BiSun/>)}</NavLink> 
                </nav>
                 </div>
                 <div className="search">
