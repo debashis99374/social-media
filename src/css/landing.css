@@ -10,7 +10,8 @@
     padding: 20px;
     border: 1px solid #ccc;
     
-  }  
+  } 
+  
   .landing-main-container>h4{
     text-align: center;
   }
@@ -39,6 +40,14 @@
   .landing-main-container form{
     display: flex;
     flex-direction: column;
+  }
+  .password-input{
+    display: flex;
+    
+  } 
+  .password-input p{
+    margin-left: -25px ;
+   
   }
   .landing-main-container form lable{
     margin-bottom: 5px;

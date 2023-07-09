@@ -3,6 +3,7 @@ import {useState,useEffect} from 'react'
 import "../css/landing.css"
 import { useContext } from 'react'
 import { AuthContext } from '../context/authContext'
+import { BiShow,BiHide } from "react-icons/bi";
 export default function Landing(){
     const navigate=useNavigate()
     const {token,loginHandler}=useContext(AuthContext)
@@ -40,11 +41,12 @@ export default function Landing(){
    <input type="text" value={loginForm.username} onChange={(e)=>setLoginForm({...loginForm,username:e.target.value})} />
    <lable>password:</lable>
    
+   <div className="password-input">
             <input type={showPassword ? "text" : "password"} value={loginForm.password} onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })} />
-            <button  onClick={()=>setShowPassword(!showPassword)}>
-              hola
-            </button>
-          
+            <p onClick={() => setShowPassword(!showPassword)}>
+              {showPassword ? <BiHide /> : <BiShow />}
+            </p>
+          </div>
    <button type='submit'>Log in</button> <br/>
     </form>
             
