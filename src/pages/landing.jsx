@@ -6,6 +6,7 @@ import { AuthContext } from '../context/authContext'
 export default function Landing(){
     const navigate=useNavigate()
     const {token,loginHandler}=useContext(AuthContext)
+    const [showPassword,setShowPassword]=useState(false)
 
     const [loginForm, setLoginForm] = useState({
         username: "",
@@ -38,7 +39,12 @@ export default function Landing(){
    <lable>Username:</lable>
    <input type="text" value={loginForm.username} onChange={(e)=>setLoginForm({...loginForm,username:e.target.value})} />
    <lable>password:</lable>
-   <input type="password"  value={loginForm.password} onChange={(e)=>setLoginForm({...loginForm,password:e.target.value})} />
+   
+            <input type={showPassword ? "text" : "password"} value={loginForm.password} onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })} />
+            <button  onClick={()=>setShowPassword(!showPassword)}>
+              hola
+            </button>
+          
    <button type='submit'>Log in</button> <br/>
     </form>
             

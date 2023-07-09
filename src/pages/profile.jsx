@@ -37,7 +37,7 @@ export default function Profile(){
 
             <div className="container-profile"  style={{color:darkMode?"white":"black" ,backgroundColor:darkMode?"black":"rgb(235, 253, 253)"}}>
                 <img className="container-profile-img" src={userData.allUsers?.find(el=>el.username===userData.user.username)?.avatar}/>
-                <h3> {capitalizeFirstLetter(userData.user.firstName)} {capitalizeFirstLetter(userData.user.lastName)} </h3>
+                <h3> {capitalizeFirstLetter(userData.user.firstName)} {capitalizeFirstLetter(userData.user.lastName)} jtgkgk </h3>
                 <p className="container-profile-p1">@{userData.user.username}</p>
                 <button onClick={()=>setIsModalOpenProfile(true)}>EDIT</button>
                 <button onClick={()=>logoutHandler()}>Log Out</button>
