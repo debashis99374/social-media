@@ -145,6 +145,87 @@
     }
     
   }
+  /*8end for tablets-----------------------------------------------------------------*/
+  @media screen and (min-width: 100px) and (max-width: 359px){
+    .home{
+    
+    
+
+    }
+    .homepage-container{
+        background-color: rgb(235, 253, 253);
+        width: 10cm;
+        padding: 20px;
+        position: relative;
+        bottom: 20cm;
+        right: -2.2cm;
+    }
+    .comments-container>input{
+        width: 60%;
+        height: .5cm;
+        margin-left: 1cm;
+        background-color: aliceblue;
+        border-radius: 5px;
+    
+    }
+    .comments-container>button{
+        font-size: 10px;
+        width: 50px;
+        height: 30px;
+        padding: 10px;
+       position: relative;
+       top: .8cm;
+       right:2cm;
+    
+    }
+    .homepage-container-filter-sort{
+        margin-left: 30px;
+    }
+    .homepage-container-filter-sort button{
+        margin-top: -20px;
+        margin-left: 10px;
+        font-size: 10px;
+        width: 50px;
+        height: 30px;
+
+    }
+    .allPosts-container{
+        width: 80%;
+        margin-left: 1cm;
+        margin-top: 1cm;
+    }
+    .allPosts-container-p1{
+        font-size: 10px;
+        color: rgb(54, 54, 54);
+        margin-bottom: 10px;
+    }
+    .allPosts-container-p2{
+        font-size: 13px;
+        
+    }
+    .allPosts-container-span1{
+        font-size:10px;position:relative;top:-.2cm;right:-3.1cm;
+    }
+    .allPosts-container>li>h3{
+        font-size: 15px;
+        margin-bottom: -15px;
+    }
+    .allPosts-container>li>button{
+        background-color:rgb(235, 253, 253) ;
+        color: black;
+        font-size: 15px;
+       margin: 0cm 0cm 0cm .5cm;
+        
+    }
+    .allPosts-container>li>button:hover{
+        color: orange;
+        transform: scale(1.1);
+        
+    }
+    .allPosts-container-span2{
+        margin-left: 0cm;
+    }
+  }
 
 
 

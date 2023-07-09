@@ -24,7 +24,7 @@ export default function RightsideBar(){
     
     return(
         <>
-        <div className={`rightsidebarDiv ${showMenu?"show":""}`} style={{color:darkMode?"white":"black" ,backgroundColor:darkMode?"black":"rgb(235, 253, 253)"}}>
+        <div className={`rightsidebarDiv ${showMenu ? "show" : ""}`} style={{color:darkMode?"white":"black" ,backgroundColor:darkMode?"black":"rgb(235, 253, 253)"}}>
             <h4 style={{color:darkMode?"white":"black" }}>WHO TO FOLLOW</h4>
             <div className="allUsersList">
                 {userData.allUsers.map(el=>(

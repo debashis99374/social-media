@@ -136,3 +136,76 @@ color: black;
     }
     
   }
+  /*end for tablets-------------------------------*/
+  @media screen and (min-width: 100px) and (max-width: 359px){
+    .navbar{
+        background-color: rgb(235, 253, 253);
+        height: 2cm;
+        display: flex;
+        
+    }
+    .navbar-left>span{
+        font-size: 20px;
+        font-weight: 500;
+        color: orange;
+        margin: 10px 0px 0px 10px;
+       
+    
+    }
+    .icons>nav>.NavLink{
+    font-size: 15px;
+    position: relative;
+    margin: 10px;
+    left: 3.5cm;
+    top: -.3cm;
+    color: black;
+    
+    }
+    .icons>nav>.NavLink:hover{
+        font-weight: 500;
+        font-size: 17px;
+        
+    }
+    .search{
+        position: relative;
+        top: 0cm;
+        right: -2cm;
+    
+    }
+    .search>input{
+        width: 5cm;
+        height: .3cm;
+        padding: 5px;
+        border-radius: 5px;
+        border: -1px solid "gray";
+    }
+    .search>.search-icon{
+        position: absolute;
+        right: .1cm;
+        top: .2cm;
+       font-size: 13px;
+       color: gray;
+    
+        transform: translate(-50%);
+    }
+    .userdiv{
+        position: relative;
+        top: -1.7cm;
+        right: -5.5cm;
+       
+    }
+    .userdiv>img{
+        height: 25px;
+        border-radius: 50%;
+    
+    }
+    .userdiv>span{
+        position: absolute;
+        top: 0px;
+        font-weight: 600;
+        margin-left: 10px;
+    
+    }
+    
+  }
+  
