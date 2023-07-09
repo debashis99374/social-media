@@ -1,13 +1,17 @@
 import {useState,createContext,useEffect,useContext} from 'react'
 import { PostContext } from './postContext'
  import axios from 'axios'
+import { UserContext } from './userContext'
 
 
 export const AuthContext=createContext()
 export function AuthProvider({children}){
+   
     const localstorageToken=JSON.parse(localStorage.getItem('userDetails'))
     const [token,setToken]=useState(localstorageToken?.token)
     const [currentUser,setCurrentUser]=useState(localstorageToken?.user)
+   
+    
    
     
    const loginInformation=async(username,password)=>await axios.post('/api/auth/login',{username, password})
@@ -23,9 +27,11 @@ export function AuthProvider({children}){
                 JSON.stringify({user:foundUser,token:encodedToken})
             )
             
-            
+            console.log(foundUser,"data")
             setCurrentUser(foundUser)
+           
             setToken(encodedToken)
+            
         }
        } catch(e){
         console.log(e)
@@ -39,9 +45,10 @@ const signupHandler=async(firstName, lastName, username, password)=>{
                 'userDetails',
                 JSON.stringify({user:createdUser,token:encodedToken})
             )
-            
+           
             setCurrentUser(createdUser)
             setToken(encodedToken)
+            
         }
 
     }catch(e){

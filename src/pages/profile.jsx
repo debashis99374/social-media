@@ -17,7 +17,7 @@ export default function Profile(){
     const [element,setElement]=useState({})
 
 
-   const {logoutHandler}=useContext(AuthContext)
+   const {logoutHandler,currentUser}=useContext(AuthContext)
     const {postData,createPost,likePostHandler,dislikePostHandler,deletePostHandler}=useContext(PostContext)
   const {userData,addBookmarkHandler,removeBookmarkHandler,darkMode}=useContext(UserContext)
   

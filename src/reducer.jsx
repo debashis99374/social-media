@@ -34,6 +34,8 @@ switch(type){
     
    
       return { ...state, user: payLoad };
+      case "del-user":
+        return { ...state, user: payLoad };
 
     case"add-to-bookmark":
     
