@@ -35,8 +35,8 @@ export default function NavBar(){
                 </div>
                 <div className='navbar-right'>
                     <div className='userdiv'>
-                    <img src={userData.allUsers?.find(el=>el.username===userData.user.username)?.avatar} onClick={()=>navigate("/profile")}/>
-                    <span onClick={()=>navigate("/profile")}>{capitalizeFirstLetter(userData.user.firstName)} {capitalizeFirstLetter(userData.user.lastName)}</span>
+                    <img src={userData?.allUsers?.find(el=>el.username===userData?.user?.username)?.avatar} onClick={()=>navigate("/profile")}/>
+                    <span onClick={()=>navigate("/profile")}>{capitalizeFirstLetter(userData?.user?.firstName)} {capitalizeFirstLetter(userData?.user?.lastName)}</span>
                     </div>
                 </div>
 

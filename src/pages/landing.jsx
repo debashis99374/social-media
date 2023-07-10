@@ -15,11 +15,17 @@ export default function Landing(){
         username: "",
         password: "",
       });
+
+      const guestLogin={
+        username:"adarshBalika",
+        password:"adarshBalika123"
+
+      }
       
       const handleLogin=(e)=>{
         e.preventDefault()
         loginHandler(loginForm.username,loginForm.password)
-        setLoginForm({...loginForm,username:"",password:""})
+     
         
         
       }
@@ -52,6 +58,7 @@ export default function Landing(){
           </div>
    <button type='submit' >Log in</button> <br/>
     </form>
+    <button onClick={()=>loginHandler(guestLogin.username,guestLogin.password)}>Guest Login</button>
             
             
   
