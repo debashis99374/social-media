@@ -17,8 +17,8 @@ export default function Landing(){
       });
 
       const guestLogin={
-        username:"adarshBalika",
-        password:"adarshBalika123"
+        username:"adarshbalika",
+        password:"adarshbalika123"
 
       }
       
